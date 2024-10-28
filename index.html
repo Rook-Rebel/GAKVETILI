@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>რიცხვის სიტყვიერად დაწერა</title>
+</head>
+<body>
+    <h1>რიცხვის სიტყვიერი მნიშვნელობა</h1>
+    <div>
+        <label for="number">შეიყვანეთ რიცხვი (0-20):</label>
+        <input type="number" id="number" min="0" max="20" placeholder="შეიყვანეთ რიცხვი">
+    </div>
+    <button onclick="convertToWord()">სიტყვით დაწერა</button>
+    <h2 id="result">სიტყვიერი მნიშვნელობა: </h2>
+
+    <script>
+        function convertToWord() {
+            const number = parseInt(document.getElementById('number').value);
+
+            if (isNaN(number) || number < 0 || number > 20) {
+                alert("გთხოვთ, შეიყვანოთ რიცხვი 0-დან 20-მდე.");
+                return;
+            }
+
+            const words = [
+                "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", 
+                "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"
+            ];
+
+            const word = words[number];
+            document.getElementById('result').textContent = "სიტყვიერი მნიშვნელობა: " + word;
+        }
+    </script>
+</body>
+</html>
